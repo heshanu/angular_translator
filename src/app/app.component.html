@@ -1,3 +1,30 @@
-<h1>H1</h1>
+<h1>Password Generator</h1>
 
-<router-outlet></router-outlet>
+<div>
+  <label>Enter Length</label>
+  <input (input):HTMLInputElement="onChangeLength($event.target.value)"  />
+</div>
+
+<div>
+  <label>Use Letters</label>
+  <input (change)="onChangeUseLetters()" type="checkbox" />
+</div>
+
+<div>
+  <label>Use Numbers</label>
+  <input (change)="onChangeUseNumbers()" type="checkbox" />
+</div>
+
+<div>
+  <label>Use Symbols</label>
+  <input (change)="onChangeUseSymbols()" type="checkbox" />
+</div>
+
+<div>
+  <button (click)="onButtonClick()">Generate!</button>
+</div>
+
+<div>
+  <label>Your Password</label>
+  <input [value]="password" />
+</div>

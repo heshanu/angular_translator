@@ -5,13 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   length = 0;
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
   password = '';
+  value:any;
 
   onChangeLength(value: string) {
     const parsedValue = parseInt(value);
@@ -34,12 +34,25 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log(`
-      About to generate a password with the following:
-      Includes letters: ${this.includeLetters}
-      Includes numbers: ${this.includeNumbers}
-      Includes symbols: ${this.includeSymbols}
-    `);
-    //this.password = 'MY PASSWORD!!!';
+    const numbers='123456789';
+    const letters='ajdnddnsjs';
+    const symbol='!@#$%^&*()';
+    
+    let validChars='';
+    if(this.includeLetters){
+      validChars+=letters;
+    }
+    if(this.includeNumbers){
+      validChars+=numbers;
+    }
+    if(this.includeSymbols){
+      validChars+=symbol;
+    }
+    let generatePassword='';
+    for(let i=0;i<this.length;i++){
+      const index=Math.floor(Math.random()*validChars.length);
+    }
+
+
   }
 }

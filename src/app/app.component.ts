@@ -11,7 +11,6 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
   password = '';
-  value:any;
 
   onChangeLength(value: string) {
     const parsedValue = parseInt(value);
@@ -34,25 +33,26 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    const numbers='123456789';
-    const letters='ajdnddnsjs';
-    const symbol='!@#$%^&*()';
-    
-    let validChars='';
-    if(this.includeLetters){
-      validChars+=letters;
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwyz';
+    const symbols = '!@#$%^&*()';
+
+    let validChars = '';
+    if (this.includeLetters) {
+      validChars += letters;
     }
-    if(this.includeNumbers){
-      validChars+=numbers;
+    if (this.includeNumbers) {
+      validChars += numbers;
     }
-    if(this.includeSymbols){
-      validChars+=symbol;
-    }
-    let generatePassword='';
-    for(let i=0;i<this.length;i++){
-      const index=Math.floor(Math.random()*validChars.length);
+    if (this.includeSymbols) {
+      validChars += symbols;
     }
 
-
+    let generatedPassword = '';
+    for (let i = 0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+    this.password = generatedPassword;
   }
 }

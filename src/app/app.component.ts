@@ -6,17 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  length = 0;
+  length:number=0;
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
   password = '';
 
-  onChangeLength(value: string) {
+  onChangeLength(value:string) {
     const parsedValue = parseInt(value);
 
     if (!isNaN(parsedValue)) {
       this.length = parsedValue;
+      console.log(parsedValue);
     }
   }
 
@@ -33,6 +34,7 @@ export class AppComponent {
   }
 
   onButtonClick() {
+    console.log('aaaaaaaaaaaaaaaaaa');
     const numbers = '1234567890';
     const letters = 'abcdefghijklmnopqrstuvwyz';
     const symbols = '!@#$%^&*()';
@@ -40,19 +42,25 @@ export class AppComponent {
     let validChars = '';
     if (this.includeLetters) {
       validChars += letters;
+    //  console.log('aaaaaaaaaaaaaaaaaa3');
     }
     if (this.includeNumbers) {
       validChars += numbers;
+    //  console.log('aaaaaaaaaaaaaaaaaa1');
     }
     if (this.includeSymbols) {
       validChars += symbols;
+     // console.log('aaaaaaaaaaaaaaaaaa2');
     }
 
     let generatedPassword = '';
-    for (let i = 0; i < this.length; i++) {
+    for (let i = 0; i <this.length; i++) {
       const index = Math.floor(Math.random() * validChars.length);
       generatedPassword += validChars[index];
+     // console.log('aaaaaaaaaaaaaaaaaa34');
     }
     this.password = generatedPassword;
+    
+    //console.log(this.password);
   }
 }

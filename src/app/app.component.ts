@@ -82,7 +82,7 @@ onChangeLength(value:string) {
     }
 
     let generatedPassword:any=0;
-    for (let i = 0; i <=parsedValue; i++) {
+    for (let i = 0; i <parsedValue-1; i++) {
       const index = Math.floor(Math.random() * validChars.length);
       generatedPassword += validChars[index];
      // console.log('aaaaaaaaaaaaaaaaaa34');

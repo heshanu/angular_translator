@@ -12,15 +12,32 @@ export class AppComponent {
   includeSymbols = false;
   password = '';
 
+  /*
   onChangeLength(value:string) {
+    
+  //readonly target: EventTarget;
     const parsedValue = parseInt(value);
+    console.log(parsedValue);
 
     if (!isNaN(parsedValue)) {
       this.length = parsedValue;
       console.log(parsedValue);
     }
   }
+*/
+onChangeLength(value:string) {
+    
+  //readonly target: EventTarget;
 
+  var p = (<HTMLInputElement>document.getElementById("l")).value;
+    let parsedValue=parseInt(p);
+    console.log(parsedValue);
+
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+     // console.log(parsedValue);
+    }
+  }
   onChangeUseLetters() {
     this.includeLetters = !this.includeLetters;
   }
@@ -34,7 +51,6 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log('aaaaaaaaaaaaaaaaaa');
     const numbers = '1234567890';
     const letters = 'abcdefghijklmnopqrstuvwyz';
     const symbols = '!@#$%^&*()';
@@ -53,8 +69,17 @@ export class AppComponent {
      // console.log('aaaaaaaaaaaaaaaaaa2');
     }
 
-    let generatedPassword = '';
-    for (let i = 0; i <this.length; i++) {
+    var p = (<HTMLInputElement>document.getElementById("l")).value;
+    let parsedValue=parseInt(p);
+    console.log(parsedValue);
+
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+     // console.log(parsedValue);
+    }
+
+    let generatedPassword:any=0;
+    for (let i = 0; i <=parsedValue; i++) {
       const index = Math.floor(Math.random() * validChars.length);
       generatedPassword += validChars[index];
      // console.log('aaaaaaaaaaaaaaaaaa34');

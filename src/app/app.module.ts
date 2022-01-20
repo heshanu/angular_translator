@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 import {MenuItem} from 'primeng/api';   
-import {MatFormFieldModule,MatFormField, MatLabel, MatFormFieldControl} from '@angular/material/form-field';
+import {MatFormField, MatLabel, MatFormFieldControl} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,14 @@ import {MatFormFieldModule,MatFormField, MatLabel, MatFormFieldControl} from '@a
     HomeComponent
   ],
   imports: [
-    BrowserModule,AppRoutingModule,FormsModule, BrowserAnimationsModule,MatSliderModule,AccordionModule,MatFormFieldModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule, 
+    BrowserAnimationsModule,
+    FormsModule,
+    MatSliderModule,
+    AccordionModule,
+    MatFormFieldModule
   ],
   
   providers: [],
